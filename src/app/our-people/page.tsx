@@ -31,14 +31,14 @@ const board = [
   },
 ];
 
-import Image from "next/image";
+
 
 export default function OurPeople() {
   return (
     <div className="font-quicksand">
       {/* Hero */}
       <section className="relative py-28 px-6 text-center overflow-hidden min-h-[60vh] flex items-center justify-center">
-        <Image src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1800&q=80" alt="Team of people" fill className="object-cover" />
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1800&q=80" alt="Team of people" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-cruz/80" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <p className="text-pele text-sm font-semibold tracking-widest uppercase mb-4">Our People</p>

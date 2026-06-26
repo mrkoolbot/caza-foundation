@@ -1,11 +1,11 @@
-import Image from "next/image";
+
 
 export default function FindShelter() {
   return (
     <div className="font-quicksand">
       {/* Hero */}
       <section className="relative py-28 px-6 text-center overflow-hidden min-h-[60vh] flex items-center justify-center">
-        <Image src="https://images.unsplash.com/photo-1542884748-2b87b36c6b90?w=1800&q=80" alt="Person seeking shelter and comfort" fill className="object-cover" />
+        <img src="https://images.unsplash.com/photo-1542884748-2b87b36c6b90?w=1800&q=80" alt="Person seeking shelter and comfort" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-alma/85" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <p className="text-barro text-sm font-semibold tracking-widest uppercase mb-4">Find Shelter</p>
