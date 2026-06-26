@@ -12,31 +12,31 @@ const config: Config = {
         quicksand: ["Quicksand", "sans-serif"],
       },
       colors: {
-        // CAZA palette
-        cruz: "#6a482c",
-        po: "#a48157",
-        pele: "#c18f55",
-        amor: "#813332",
-        teto: "#7a3929",
-        alma: "#f8f0de",
-        barro: "#994b36",
-        liga: "#74685a",
-        // TKG-style aliases for easy porting
-        "pure-white": "#f8f0de",
-        obsidian: "#6a482c",
+        cruz:   "#6a482c",
+        po:     "#a48157",
+        pele:   "#c18f55",
+        amor:   "#813332",
+        teto:   "#7a3929",
+        alma:   "#faf7f2",
+        barro:  "#994b36",
+        liga:   "#6b6560",
+        // TKG-style semantic aliases
+        obsidian:    "#1a1a1a",
+        "pure-white": "#ffffff",
+        "kool-red":  "#813332",
       },
       keyframes: {
         marquee: {
-          "0%": { transform: "translateX(0)" },
+          "0%":   { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
         scrollLine: {
-          "0%": { transform: "translateY(-100%)" },
+          "0%":   { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(200%)" },
         },
       },
       animation: {
-        marquee: "marquee 24s linear infinite",
+        marquee:    "marquee 28s linear infinite",
         scrollLine: "scrollLine 2s ease-in-out infinite",
       },
     },

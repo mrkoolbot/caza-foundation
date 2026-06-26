@@ -63,7 +63,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-500",
           isScrolled
-            ? "px-6 sm:px-10 py-4 bg-alma/98 backdrop-blur-xl border-b border-po/10 shadow-sm"
+            ? "px-6 sm:px-10 py-4 bg-white/98 backdrop-blur-xl border-b border-neutral-100 shadow-sm"
             : "px-6 sm:px-10 md:px-14 py-5 bg-transparent"
         )}
         initial={{ y: -20, opacity: 0 }}
