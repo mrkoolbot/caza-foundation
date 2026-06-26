@@ -2,67 +2,87 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { CazaLogo } from "./CazaLogo"
 
 const navLinks = [
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Board", href: "/board" },
-  { name: "Contact", href: "/contact" },
+  { name: "Our Why", href: "/our-why" },
+  { name: "Our Programs", href: "/our-programs" },
+  { name: "Our People", href: "/our-people" },
+  { name: "Walk With Us", href: "/walk-with-us" },
+  { name: "Find Shelter", href: "/find-shelter" },
 ]
 
-export function Navbar() {
+function CazaLogoSVG({ light = false }: { light?: boolean }) {
+  const fill = light ? "#f8f0de" : "#6a482c"
+  const accent = light ? "#c18f55" : "#a48157"
+  return (
+    <svg viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" style={{ height: 36, width: "auto" }}>
+      <defs>
+        <linearGradient id="houseGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#E8A020" />
+          <stop offset="100%" stopColor="#D44000" />
+        </linearGradient>
+      </defs>
+      <text x="2" y="42" fontFamily="Quicksand, sans-serif" fontWeight="700" fontSize="44" fill={fill}>C</text>
+      <text x="34" y="42" fontFamily="Quicksand, sans-serif" fontWeight="700" fontSize="44" fill={fill}>A</text>
+      <rect x="49" y="9" width="9" height="9" rx="1.5" fill="url(#houseGlow)" />
+      <text x="68" y="42" fontFamily="Quicksand, sans-serif" fontWeight="700" fontSize="44" fill={fill}>Z</text>
+      <text x="100" y="42" fontFamily="Quicksand, sans-serif" fontWeight="700" fontSize="44" fill={fill}>A</text>
+      <rect x="115" y="9" width="9" height="9" rx="1.5" fill="url(#houseGlow)" />
+      <path d="M2,48 Q110,43 218,48" stroke={accent} strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <text x="52" y="56" fontFamily="Georgia, serif" fontStyle="italic" fontSize="11" fill={accent} letterSpacing="1">foundation</text>
+    </svg>
+  )
+}
+
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 60)
-    handleScroll()
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setIsScrolled(window.scrollY > 60)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : ""
+    document.body.style.overflow = isMobileOpen ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
-  }, [isMobileMenuOpen])
+  }, [isMobileOpen])
 
   const darkPages = ["/"]
-  const onDark = !isScrolled && darkPages.includes(pathname) && !isMobileMenuOpen
+  const onDark = !isScrolled && darkPages.includes(pathname) && !isMobileOpen
 
   return (
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-500 overflow-visible",
+          "fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-500",
           isScrolled
-            ? "px-6 sm:px-10 py-4 bg-alma/98 backdrop-blur-xl border-b border-cruz/10 shadow-sm"
-            : "px-6 sm:px-10 md:px-14 py-4 md:py-5 bg-transparent"
+            ? "px-6 sm:px-10 py-4 bg-alma/98 backdrop-blur-xl border-b border-po/10 shadow-sm"
+            : "px-6 sm:px-10 md:px-14 py-5 bg-transparent"
         )}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        {/* CAZA Logo */}
         <Link href="/" className="relative z-50 flex-shrink-0">
-          <div className="w-32 h-8">
-            <CazaLogo />
-          </div>
+          <CazaLogoSVG light={onDark} />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2 overflow-visible">
+        {/* Desktop Nav — centered like TKG */}
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               className={cn(
-                "text-xs font-semibold tracking-[0.08em] transition-colors duration-200 hover:text-amor",
-                onDark ? "text-alma/80" : "text-cruz/70",
+                "text-xs font-semibold tracking-[0.12em] transition-colors duration-200 hover:text-amor",
+                onDark ? "text-alma/80" : "text-liga",
                 pathname === link.href && "text-amor"
               )}
             >
@@ -71,51 +91,36 @@ export function Navbar() {
           ))}
         </nav>
 
-        {/* Right side — CTA */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Right CTA */}
+        <div className="hidden md:flex items-center gap-4">
           <Link
-            href="/contact"
+            href="/give"
             className={cn(
-              "inline-flex items-center justify-center text-xs font-bold transition-all duration-200 border px-5 py-2.5 whitespace-nowrap",
+              "inline-flex items-center justify-center text-xs font-bold tracking-wider transition-all duration-200 border px-5 py-2.5",
               onDark
                 ? "border-alma/40 text-alma hover:bg-alma hover:text-cruz"
                 : "border-cruz text-cruz hover:bg-cruz hover:text-alma"
             )}
           >
-            Find Shelter
+            Give Now
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile hamburger */}
         <button
           className="md:hidden z-50 flex flex-col gap-[5px] items-end justify-center w-8 h-8"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "close menu" : "open menu"}
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label="Toggle menu"
         >
-          <span className={cn(
-            "block h-[1.5px] transition-all duration-300 origin-center",
-            isMobileMenuOpen
-              ? "w-6 rotate-45 translate-y-[6.5px] bg-cruz"
-              : cn("w-6", onDark ? "bg-alma" : "bg-cruz")
-          )} />
-          <span className={cn(
-            "block h-[1.5px] transition-all duration-300",
-            isMobileMenuOpen
-              ? "opacity-0 w-0"
-              : cn("w-4", onDark ? "bg-alma" : "bg-cruz")
-          )} />
-          <span className={cn(
-            "block h-[1.5px] transition-all duration-300 origin-center",
-            isMobileMenuOpen
-              ? "w-6 -rotate-45 -translate-y-[6.5px] bg-cruz"
-              : cn("w-6", onDark ? "bg-alma" : "bg-cruz")
-          )} />
+          <span className={cn("block h-[1.5px] transition-all duration-300 origin-center", isMobileOpen ? "w-6 rotate-45 translate-y-[6.5px] bg-cruz" : cn("w-6", onDark ? "bg-alma" : "bg-cruz"))} />
+          <span className={cn("block h-[1.5px] transition-all duration-300", isMobileOpen ? "opacity-0 w-0" : cn("w-4", onDark ? "bg-alma" : "bg-cruz"))} />
+          <span className={cn("block h-[1.5px] transition-all duration-300 origin-center", isMobileOpen ? "w-6 -rotate-45 -translate-y-[6.5px] bg-cruz" : cn("w-6", onDark ? "bg-alma" : "bg-cruz"))} />
         </button>
       </motion.header>
 
-      {/* Mobile menu — full screen, dark */}
+      {/* Mobile fullscreen menu — dark like TKG */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,7 +138,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => setIsMobileOpen(false)}
                     className={cn(
                       "block text-4xl sm:text-5xl font-bold tracking-tight py-3 border-b border-alma/10 transition-colors hover:text-pele",
                       pathname === link.href ? "text-pele" : "text-alma"
@@ -144,15 +149,9 @@ export function Navbar() {
                 </motion.div>
               ))}
             </div>
-
-            {/* Bottom row */}
             <div className="px-8 pb-12">
-              <Link
-                href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center justify-center bg-amor text-alma px-6 py-3 text-xs font-bold tracking-widest"
-              >
-                Find Shelter
+              <Link href="/give" onClick={() => setIsMobileOpen(false)} className="inline-flex items-center justify-center bg-amor text-alma px-6 py-3 text-xs font-bold tracking-widest">
+                Give Now
               </Link>
             </div>
           </motion.div>

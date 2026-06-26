@@ -4,33 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --cruz: #6a482c;
-  --po: #a48157;
-  --pele: #c18f55;
-  --amor: #813332;
-  --teto: #7a3929;
-  --alma: #f8f0de;
-  --barro: #994b36;
-  --liga: #74685a;
-}
+* { box-sizing: border-box; padding: 0; margin: 0; }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: 'Quicksand', sans-serif;
-  background-color: var(--alma);
-  color: var(--cruz);
+  background-color: #f8f0de;
+  color: #6a482c;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+
+/* TKG border-draw button effect */
+.border-draw { position: relative; overflow: hidden; }

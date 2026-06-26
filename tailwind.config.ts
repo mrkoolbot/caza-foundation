@@ -12,6 +12,7 @@ const config: Config = {
         quicksand: ["Quicksand", "sans-serif"],
       },
       colors: {
+        // CAZA palette
         cruz: "#6a482c",
         po: "#a48157",
         pele: "#c18f55",
@@ -20,20 +21,23 @@ const config: Config = {
         alma: "#f8f0de",
         barro: "#994b36",
         liga: "#74685a",
+        // TKG-style aliases for easy porting
+        "pure-white": "#f8f0de",
+        obsidian: "#6a482c",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
+        scrollLine: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(200%)" },
         },
       },
       animation: {
-        marquee: "marquee 20s linear infinite",
-        "fade-up": "fade-up 0.8s ease forwards",
+        marquee: "marquee 24s linear infinite",
+        scrollLine: "scrollLine 2s ease-in-out infinite",
       },
     },
   },
