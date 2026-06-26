@@ -53,7 +53,6 @@ export function WhoWeServe() {
                     <SectionHeader 
                         label="who we serve"
                         title="built to support visionary leaders."
-                        className="mb-0"
                     />
                 </div>
                 <div>

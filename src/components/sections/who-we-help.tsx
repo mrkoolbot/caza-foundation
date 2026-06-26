@@ -44,7 +44,6 @@ export function WhoWeHelp() {
             <SectionHeader
               label="who we serve"
               title="built to walk with families at their hardest moments."
-              className="mb-0"
             />
           </div>
           <div>
