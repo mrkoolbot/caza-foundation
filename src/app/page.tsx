@@ -12,7 +12,7 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&q=80"
           alt="Family together"
           fill
-          className="object-cover object-center grayscale"
+          className="object-cover object-center"
           priority
         />
         {/* Dark overlay */}
@@ -100,7 +100,7 @@ export default function Home() {
                     src={p.img}
                     alt={p.alt}
                     fill
-                    className="object-cover grayscale group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-cruz/30 group-hover:bg-cruz/20 transition-colors" />
                 </div>
@@ -124,7 +124,7 @@ export default function Home() {
           src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=80"
           alt="Family walking together"
           fill
-          className="object-cover grayscale"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-teto/75" />
         <div className="relative z-10 max-w-4xl mx-auto text-center text-alma">
@@ -143,7 +143,7 @@ export default function Home() {
               src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80"
               alt="Family seeking support"
               fill
-              className="object-cover grayscale"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-amor/80" />
             <div className="relative z-10 p-10 text-alma">
@@ -165,7 +165,7 @@ export default function Home() {
               src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80"
               alt="Giving and generosity"
               fill
-              className="object-cover grayscale"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-cruz/80" />
             <div className="relative z-10 p-10 text-alma">
