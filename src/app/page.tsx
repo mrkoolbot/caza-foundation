@@ -1,164 +1,182 @@
+"use client"
+import Link from "next/link"
 import { CazaHero } from "@/components/caza-hero"
 import { WhoWeHelp } from "@/components/sections/who-we-help"
 import { SectionHeader } from "@/components/section-header"
 import { ProgramCard } from "@/components/program-card"
-import { CazaLogo } from "@/components/caza-logo-inline"
-import Link from "next/link"
+import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 const programs = [
   {
     title: "rebuilding a family in crisis",
     client: "Roots & Wings",
-    description: "How faith-centered counseling helped a family navigate trauma and rediscover their bond.",
+    description: "How faith-centered counseling helped a family navigate trauma and rediscover their bond — one honest conversation at a time.",
     href: "/our-programs#roots-and-wings",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
     delay: 0,
-    className: "lg:col-span-2 bg-white",
+    className: "lg:col-span-2",
   },
   {
     title: "learning together, growing stronger",
     client: "The Knowing House",
-    description: "How educational support transformed the way one family communicates and thrives.",
+    description: "Educational support that transformed the way one family communicates, learns, and thrives together.",
     href: "/our-programs#the-knowing-house",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     delay: 0.1,
-    className: "bg-white",
+    className: "",
   },
   {
     title: "from devastation to home again",
     client: "Homecoming",
-    description: "How disaster recovery care restored not just a house — but a family's sense of safety and faith.",
+    description: "Disaster recovery care that restored not just a house — but a family's sense of safety, faith, and wholeness.",
     href: "/our-programs#homecoming",
     image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=800&q=80",
     delay: 0.2,
-    className: "md:col-span-2 lg:col-span-1 bg-white",
+    className: "md:col-span-2 lg:col-span-1",
   },
+]
+
+const board = [
+  { name: "Adriana Palhares Baida", title: "President",      color: "#6a482c" },
+  { name: "Paula Mescolin",          title: "Vice President", color: "#813332" },
+  { name: "Paula Barifouse",         title: "Secretary",      color: "#994b36" },
+  { name: "Tatiana Pellegrini",      title: "Director",       color: "#a48157" },
+  { name: "Carol Sampaio",           title: "Treasurer",      color: "#6b6560" },
 ]
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-white text-obsidian selection:bg-amor selection:text-white">
+    <main style={{ backgroundColor: "#ffffff", color: "#1a1a1a", fontFamily: "Quicksand, sans-serif" }}>
+
       <CazaHero />
 
+      {/* ── MARQUEE ──────────────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#813332", padding: "1rem 0", overflow: "hidden" }}>
+        <div style={{ display: "flex", gap: "3rem", animation: "marquee 28s linear infinite", whiteSpace: "nowrap" }}>
+          {Array(10).fill("faith · family · healing · we walk with you · rooted in love · no one carries their pain alone ·").map((t, i) => (
+            <span key={i} style={{ color: "white", fontWeight: 700, fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase", flexShrink: 0 }}>{t}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* ── WHO WE HELP ──────────────────────────────────────────── */}
       <WhoWeHelp />
 
-      {/* ── PROGRAMS (= TKG Case Studies) ──────────────────── */}
-      <section className="py-16 sm:py-20 md:py-32 lg:py-40 px-4 sm:px-6 md:px-12 lg:px-16 bg-neutral-50 border-t border-neutral-200">
-        <SectionHeader
-          label="our programs"
-          title="when a family finds shelter, everything changes."
-          subtitle="from crisis to healing. our programs work quietly, faithfully, behind the scenes."
-          className="mb-10 sm:mb-16 md:mb-24"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+      {/* ── PROGRAMS ─────────────────────────────────────────────── */}
+      <section style={{ padding: "8rem 5rem", backgroundColor: "#f9f9f9", borderTop: "1px solid #e5e5e5" }}>
+        <div style={{ marginBottom: "5rem" }}>
+          <SectionHeader
+            label="our programs"
+            title="when a family finds shelter, everything changes."
+            subtitle="from crisis to healing. three programs built to walk with families through their hardest seasons."
+          />
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2rem" }}>
           {programs.map((p) => (
             <ProgramCard key={p.title} {...p} />
           ))}
         </div>
-        <div className="mt-10 sm:mt-16 md:mt-24 text-center">
-          <Link href="/our-programs" className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-bold text-neutral-400 hover:text-amor transition-colors tracking-wide group">
-            explore all programs
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
+        <div style={{ marginTop: "5rem", textAlign: "center" }}>
+          <Link href="/our-programs" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "1.125rem", fontWeight: 700, color: "#737373" }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#813332"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#737373"}
+          >
+            explore all programs <ArrowRight style={{ width: 20, height: 20 }} />
           </Link>
         </div>
       </section>
 
-      {/* ── SIGNATURE OFFER (= TKG dark section) ───────────── */}
-      <section className="py-16 sm:py-24 md:py-32 lg:py-48 px-4 sm:px-6 md:px-12 lg:px-16 bg-obsidian text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1800&q=80')" }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent" />
-        </div>
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <span className="text-amor text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6 md:mb-8 block">our vision</span>
-          <h2 className="text-[1.5rem] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold tracking-tighter leading-[1.05] mb-6 sm:mb-8 md:mb-12">
-            no one carries their pain alone.
+      {/* ── DARK VISION SECTION ──────────────────────────────────── */}
+      <section style={{ position: "relative", padding: "10rem 5rem", backgroundColor: "#1a1a1a", color: "white", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1800&q=80')", backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15 }} />
+        <div style={{ position: "relative", zIndex: 10, maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+          {/* Tiny eyebrow */}
+          <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "#813332", marginBottom: "2rem" }}>our vision</p>
+          {/* Giant headline */}
+          <h2 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.0, marginBottom: "2.5rem" }}>
+            no one carries<br />their pain alone.
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-neutral-400 leading-relaxed mb-4 sm:mb-6 max-w-4xl mx-auto text-balance">
-            A community where every family has each individual emotionally whole and spiritually grounded — the bond between spouse, parent, and child strengthened forever.
+          {/* Medium body */}
+          <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)", color: "rgba(255,255,255,0.55)", lineHeight: 1.7, marginBottom: "3rem", maxWidth: "600px", margin: "0 auto 3rem" }}>
+            A community where every family is emotionally whole and spiritually grounded — the bond between parent and child strengthened, and no one left behind.
           </p>
-          <p className="text-sm sm:text-base text-neutral-500 leading-relaxed mb-10 sm:mb-12 md:mb-16 lg:mb-20 max-w-3xl mx-auto text-balance">
-            No judgment. No condition. Just the compassion that comes from walking alongside people who've carried more than they should, for too long.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 lg:gap-12 justify-center items-center">
-            <Link
-              href="/find-shelter"
-              className="inline-flex items-center justify-center w-full sm:w-auto bg-amor text-white px-6 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 text-sm sm:text-base md:text-lg lg:text-xl font-bold hover:bg-white hover:text-obsidian transition-all hover:scale-105 duration-300 shadow-[0_0_40px_rgba(129,51,50,0.4)]"
+          <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap", marginTop: "3rem" }}>
+            <Link href="/find-shelter" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", backgroundColor: "#813332", color: "white", padding: "1.25rem 3rem", fontSize: "0.875rem", fontWeight: 700, letterSpacing: "0.05em", boxShadow: "0 0 40px rgba(129,51,50,0.4)", transition: "all 0.3s" }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.backgroundColor = "white"; el.style.color = "#1a1a1a" }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.backgroundColor = "#813332"; el.style.color = "white" }}
             >
               find shelter
             </Link>
-            <Link href="/give" className="text-sm sm:text-base border-b border-white/20 hover:border-white pb-1 transition-all">
-              or give to support a family →
+            <Link href="/our-why" style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.5)", borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: "2px", transition: "all 0.2s" }}>
+              learn more about us →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── BOARD (= TKG team teaser) ───────────────────────── */}
-      <section className="py-16 sm:py-20 md:py-32 lg:py-40 px-4 sm:px-6 md:px-12 lg:px-16 bg-white border-t border-neutral-100">
-        <SectionHeader
-          label="our people"
-          title="guided by purpose. rooted in faith."
-          subtitle="our board brings together heart, experience, and a shared calling to strengthen families."
-          className="mb-10 sm:mb-16 md:mb-24 max-w-6xl"
-        />
-        <div className="flex flex-wrap gap-3 sm:gap-4">
-          {[
-            { name: "Adriana Palhares Baida", title: "President",      color: "bg-cruz" },
-            { name: "Paula Mescolin",          title: "Vice President", color: "bg-amor" },
-            { name: "Paula Barifouse",         title: "Secretary",      color: "bg-barro" },
-            { name: "Tatiana Pellegrini",      title: "Director",       color: "bg-po" },
-            { name: "Carol Sampaio",           title: "Treasurer",      color: "bg-liga" },
-          ].map((m) => (
-            <div key={m.name} className="flex items-center gap-3 bg-white border border-neutral-100 hover:border-neutral-300 hover:shadow-md transition-all pl-2 pr-6 py-2">
-              <div className={`${m.color} w-10 h-10 flex items-center justify-center text-white text-sm font-bold shrink-0`}>
+      {/* ── BOARD ────────────────────────────────────────────────── */}
+      <section style={{ padding: "8rem 5rem", backgroundColor: "#ffffff", borderTop: "1px solid #f0f0f0" }}>
+        <div style={{ marginBottom: "5rem" }}>
+          <SectionHeader
+            label="our people"
+            title="guided by purpose. rooted in faith."
+            subtitle="our board brings together heart, experience, and a shared calling to strengthen families."
+          />
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+          {board.map((m) => (
+            <div key={m.name} style={{ display: "flex", alignItems: "center", gap: "0.75rem", backgroundColor: "white", border: "1px solid #e5e5e5", padding: "0.5rem 1.5rem 0.5rem 0.5rem" }}>
+              <div style={{ width: 40, height: 40, backgroundColor: m.color, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "0.875rem", fontWeight: 700, flexShrink: 0 }}>
                 {m.name[0]}
               </div>
               <div>
-                <p className="text-obsidian text-sm font-bold leading-tight">{m.name}</p>
-                <p className="text-neutral-400 text-xs">{m.title}</p>
+                {/* Hierarchy: name bigger than title */}
+                <p style={{ fontSize: "0.875rem", fontWeight: 700, color: "#1a1a1a", lineHeight: 1.2 }}>{m.name}</p>
+                <p style={{ fontSize: "0.7rem", color: "#a3a3a3", letterSpacing: "0.05em" }}>{m.title}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-10 sm:mt-16 md:mt-24 text-center">
-          <Link href="/our-people" className="inline-flex items-center gap-2 text-sm sm:text-base md:text-lg font-bold text-neutral-400 hover:text-amor transition-colors tracking-wide group">
-            meet the full board
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
+        <div style={{ marginTop: "4rem" }}>
+          <Link href="/our-people" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "1rem", fontWeight: 700, color: "#a3a3a3", transition: "color 0.2s" }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = "#813332"}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = "#a3a3a3"}
+          >
+            meet the full board <ArrowRight style={{ width: 16, height: 16 }} />
           </Link>
         </div>
       </section>
 
-      {/* ── DUAL CTA ────────────────────────────────────────── */}
-      <section className="py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 lg:px-16 bg-neutral-50 border-t border-neutral-200">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-          <div className="group relative flex flex-col min-h-[320px] sm:min-h-[400px] bg-white overflow-hidden border border-neutral-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500">
-            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-amor/90 via-amor/30 to-transparent" />
-            <div className="relative z-10 mt-auto p-8 sm:p-10">
-              <span className="text-white/60 text-[10px] font-bold tracking-[0.2em] uppercase block mb-3">support</span>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight leading-tight">need support?</h3>
-              <p className="text-white/60 text-sm mb-6">you don't have to carry it alone.</p>
-              <Link href="/find-shelter" className="inline-flex items-center gap-2 bg-white text-amor px-6 py-3 text-xs font-bold hover:bg-pele hover:text-white transition-colors">
-                find shelter <ArrowRight className="w-3 h-3" />
-              </Link>
+      {/* ── DUAL CTA ─────────────────────────────────────────────── */}
+      <section style={{ padding: "0 5rem 8rem", backgroundColor: "#f9f9f9", borderTop: "1px solid #e5e5e5" }}>
+        <div style={{ paddingTop: "8rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+          {[
+            { label: "support", headline: "need support?", sub: "you don't have to carry it alone.", href: "/find-shelter", cta: "find shelter", img: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80", overlayColor: "rgba(129,51,50,0.88)" },
+            { label: "give", headline: "want to help?", sub: "every gift builds a stronger home.", href: "/give", cta: "give now", img: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80", overlayColor: "rgba(26,26,26,0.88)" },
+          ].map((item) => (
+            <div key={item.href} className="group" style={{ position: "relative", minHeight: 400, display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
+              <img src={item.img} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(1)", transition: "all 0.7s" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.filter = "grayscale(0)"; (e.currentTarget as HTMLElement).style.transform = "scale(1.05)" }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.filter = "grayscale(1)"; (e.currentTarget as HTMLElement).style.transform = "scale(1)" }}
+              />
+              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(to top, ${item.overlayColor} 40%, transparent 100%)` }} />
+              <div style={{ position: "relative", zIndex: 10, padding: "2.5rem" }}>
+                {/* Tiny eyebrow */}
+                <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: "0.75rem" }}>{item.label}</p>
+                {/* Big headline */}
+                <h3 style={{ fontSize: "clamp(1.75rem, 3vw, 2.75rem)", fontWeight: 700, color: "white", letterSpacing: "-0.02em", lineHeight: 1.1, marginBottom: "0.75rem" }}>{item.headline}</h3>
+                {/* Small body */}
+                <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.55)", marginBottom: "1.5rem" }}>{item.sub}</p>
+                <Link href={item.href} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", backgroundColor: "white", color: "#813332", padding: "0.75rem 1.5rem", fontSize: "0.75rem", fontWeight: 700, transition: "all 0.2s" }}>
+                  {item.cta} <ArrowRight style={{ width: 12, height: 12 }} />
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="group relative flex flex-col min-h-[320px] sm:min-h-[400px] bg-white overflow-hidden border border-neutral-100 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500">
-            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/30 to-transparent" />
-            <div className="relative z-10 mt-auto p-8 sm:p-10">
-              <span className="text-white/60 text-[10px] font-bold tracking-[0.2em] uppercase block mb-3">give</span>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight leading-tight">want to help?</h3>
-              <p className="text-white/60 text-sm mb-6">every gift builds a stronger home.</p>
-              <Link href="/give" className="inline-flex items-center gap-2 bg-pele text-white px-6 py-3 text-xs font-bold hover:bg-amor transition-colors">
-                give now <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
+
     </main>
   )
 }
