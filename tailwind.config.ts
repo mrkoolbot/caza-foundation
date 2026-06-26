@@ -10,20 +10,23 @@ const config: Config = {
     extend: {
       fontFamily: {
         quicksand: ["Quicksand", "sans-serif"],
+        grotesk:   ["Quicksand", "sans-serif"], // TKG compat
       },
       colors: {
+        // CAZA palette
         cruz:   "#6a482c",
         po:     "#a48157",
         pele:   "#c18f55",
         amor:   "#813332",
         teto:   "#7a3929",
-        alma:   "#faf7f2",
+        alma:   "#ffffff",
         barro:  "#994b36",
         liga:   "#6b6560",
-        // TKG-style semantic aliases
+        // TKG compat aliases
         obsidian:    "#1a1a1a",
         "pure-white": "#ffffff",
-        "kool-red":  "#813332",
+        "kool-red":   "#813332",
+        "kool-black": "#1a1a1a",
       },
       keyframes: {
         marquee: {

@@ -1,0 +1,58 @@
+"use client"
+
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+interface ProgramCardProps {
+  title: string
+  client: string
+  description: string
+  href: string
+  delay?: number
+  className?: string
+  image?: string
+}
+
+export function ProgramCard({ title, client, description, href, className, image }: ProgramCardProps) {
+  return (
+    <article className={cn(
+      "group relative flex flex-col h-full bg-white overflow-hidden",
+      "border border-neutral-100 hover:border-neutral-200",
+      "hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)]",
+      "transition-all duration-500",
+      className
+    )}>
+      <Link href={href} className="flex flex-col h-full">
+        {/* Image */}
+        {image && (
+          <div className="relative w-full h-44 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-neutral-100">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          </div>
+        )}
+
+        {/* Content */}
+        <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-grow">
+          <div className="flex justify-between items-start mb-3 sm:mb-4 md:mb-5">
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.1em] sm:tracking-[0.15em] text-neutral-400">{client}</span>
+            <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-300 group-hover:text-amor transition-colors duration-500" />
+          </div>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-obsidian mb-3 sm:mb-4 leading-[1.1] group-hover:text-amor transition-colors duration-500">
+            {title}
+          </h3>
+          <p className="text-sm sm:text-base text-neutral-500 leading-relaxed mb-4 sm:mb-5 md:mb-6 line-clamp-3">{description}</p>
+          <div className="mt-auto">
+            <span className="inline-block text-xs sm:text-sm font-bold border-b-2 border-neutral-200 pb-1 group-hover:border-amor transition-colors duration-500 tracking-widest">
+              learn more
+            </span>
+          </div>
+        </div>
+      </Link>
+    </article>
+  )
+}

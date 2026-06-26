@@ -41,12 +41,12 @@ export function ProgramCard({ number, title, type, description, href, image, cla
             <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-300 group-hover:text-amor transition-colors duration-500" />
           </div>
           <span className="text-neutral-200 font-bold text-xs tracking-widest mb-2">{number}</span>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-obsidian mb-3 leading-[1.1] group-hover:text-amor transition-colors duration-500">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-cruz mb-3 leading-[1.1] group-hover:text-amor transition-colors duration-500">
             {title}
           </h3>
           <p className="text-sm sm:text-base text-neutral-500 leading-relaxed mb-6 line-clamp-3">{description}</p>
           <div className="mt-auto">
-            <span className="inline-block text-xs sm:text-sm font-bold border-b-2 border-neutral-200 pb-1 group-hover:border-amor transition-colors duration-500 tracking-widest text-obsidian">
+            <span className="inline-block text-xs sm:text-sm font-bold border-b-2 border-neutral-200 pb-1 group-hover:border-amor transition-colors duration-500 tracking-widest text-cruz">
               Learn more
             </span>
           </div>
