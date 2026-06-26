@@ -34,9 +34,9 @@ export function WhoWeServe() {
   const [activeId, setActiveId] = useState<string | null>(null)
 
   return (
-    <section style={{ position: "relative", padding: "8rem 5rem", backgroundColor: "#ffffff", zIndex: 30 }}>
+    <section style={{ position: "relative", padding: "5rem 5rem", backgroundColor: "#ffffff", zIndex: 30 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "5rem", alignItems: "flex-end" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", marginBottom: "3rem", alignItems: "flex-end" }}>
           <SectionHeader label="who we help" title="we walk with families through their hardest seasons." />
           <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)", color: "#737373", lineHeight: 1.7, fontWeight: 400 }}>
             CAZA Foundation meets families exactly where they are — in crisis, in grief, in displacement — and walks with them toward healing, wholeness, and hope.

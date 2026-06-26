@@ -51,6 +51,17 @@ export default function HomeClient() {
     <main id="main-content" style={{ position: "relative", minHeight: "100vh", backgroundColor: "#ffffff", color: "#1a1a1a", fontFamily: "Quicksand, sans-serif" }}>
       <Hero />
 
+      {/* Red marquee strip */}
+      <div style={{ backgroundColor: "#813332", padding: "0.875rem 0", overflow: "hidden" }}>
+        <div style={{ display: "flex", gap: "4rem", animation: "marquee 30s linear infinite", whiteSpace: "nowrap" }}>
+          {Array(12).fill(null).map((_, i) => (
+            <span key={i} style={{ color: "rgba(255,255,255,0.9)", fontWeight: 700, fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase", flexShrink: 0 }}>
+              faith · family · healing · we walk with you · rooted in love · no one carries their pain alone ·
+            </span>
+          ))}
+        </div>
+      </div>
+
       <WhoWeServe />
 
       {/* Programs */}
