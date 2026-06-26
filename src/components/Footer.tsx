@@ -1,60 +1,156 @@
-import Link from "next/link";
+"use client"
 
-export default function Footer() {
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
+import { CazaLogo } from "./CazaLogo"
+
+const footerLinks = {
+  navigation: [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Programs", href: "/programs" },
+    { name: "Contact", href: "/contact" },
+  ],
+  programs: [
+    { name: "Roots & Wings", href: "/programs#roots-wings" },
+    { name: "The Knowing House", href: "/programs#knowing-house" },
+    { name: "Homecoming", href: "/programs#homecoming" },
+  ],
+  socials: [
+    { name: "LinkedIn", href: "https://linkedin.com" },
+    { name: "Instagram", href: "https://instagram.com" },
+    { name: "Facebook", href: "https://facebook.com" },
+  ],
+  legal: [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+  ]
+}
+
+export function Footer() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
   return (
-    <footer className="bg-cruz text-alma">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-        {/* Brand */}
-        <div>
-          <h3 className="text-2xl font-bold tracking-wide mb-1">CAZA</h3>
-          <p className="text-sm text-pele tracking-widest mb-4">foundation</p>
-          <p className="text-sm text-alma/70 leading-relaxed">
-            We walk with families through their hardest seasons so that every home becomes a place where each member feels safe, known, and whole.
-          </p>
-        </div>
+    <footer className="bg-cruz text-alma border-t border-po/10 font-quicksand overflow-hidden">
+      {/* Main Footer Content */}
+      <div className="px-6 md:px-12 lg:px-20 py-20">
+        <div className="max-w-[1600px] mx-auto">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8"
+          >
+            {/* Brand Column */}
+            <motion.div variants={item} className="md:col-span-4 flex flex-col justify-between h-full">
+              <div className="mb-8">
+                <Link href="/" className="inline-block mb-8 w-32 h-8">
+                  <CazaLogo />
+                </Link>
+                <p className="text-lg text-alma/70 max-w-sm leading-relaxed">
+                  Faith-rooted counseling, education, and support for families.
+                </p>
+              </div>
+              <div className="text-sm text-alma/50 tracking-wider hidden md:block">
+                Established 2024
+              </div>
+            </motion.div>
 
-        {/* Links */}
-        <div>
-          <h4 className="text-sm font-bold tracking-widest uppercase text-pele mb-4">Navigate</h4>
-          <ul className="space-y-2 text-sm text-alma/70">
-            <li><Link href="/" className="hover:text-pele transition-colors">Home</Link></li>
-            <li><Link href="/our-why" className="hover:text-pele transition-colors">Our Why</Link></li>
-            <li><Link href="/our-programs" className="hover:text-pele transition-colors">Our Programs</Link></li>
-            <li><Link href="/our-people" className="hover:text-pele transition-colors">Our People</Link></li>
-            <li><Link href="/walk-with-us" className="hover:text-pele transition-colors">Walk With Us</Link></li>
-            <li><Link href="/find-shelter" className="hover:text-pele transition-colors">Find Shelter</Link></li>
-            <li><Link href="/give" className="hover:text-pele transition-colors">Give</Link></li>
-            <li><Link href="/reach-out" className="hover:text-pele transition-colors">Reach Out</Link></li>
-          </ul>
-        </div>
+            {/* Navigation Column */}
+            <motion.div variants={item} className="md:col-span-2 md:col-start-6">
+              <h4 className="text-xs font-bold tracking-[0.2em] mb-8 text-po">Navigation</h4>
+              <ul className="space-y-4">
+                {footerLinks.navigation.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-lg hover:text-pele transition-colors duration-300 block w-fit">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-        {/* Contact */}
-        <div>
-          <h4 className="text-sm font-bold tracking-widest uppercase text-pele mb-4">Contact</h4>
-          <ul className="space-y-2 text-sm text-alma/70">
-            <li>
-              <a href="tel:7542158201" className="hover:text-pele transition-colors">(754) 215-8201</a>
-            </li>
-            <li>
-              <a href="mailto:contact@cazafoundationinc.org" className="hover:text-pele transition-colors">
-                contact@cazafoundationinc.org
-              </a>
-            </li>
-          </ul>
-          <div className="mt-6">
-            <Link
-              href="/give"
-              className="inline-block bg-barro text-alma px-5 py-2 rounded-full text-sm font-bold hover:bg-amor transition-colors"
-            >
-              Give Now
-            </Link>
+            {/* Programs Column */}
+            <motion.div variants={item} className="md:col-span-3">
+              <h4 className="text-xs font-bold tracking-[0.2em] mb-8 text-po">Programs</h4>
+              <ul className="space-y-4">
+                {footerLinks.programs.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-lg hover:text-pele transition-colors duration-300 block w-fit">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Socials & Legal Column */}
+            <motion.div variants={item} className="md:col-span-2">
+              <div className="mb-12">
+                <h4 className="text-xs font-bold tracking-[0.2em] mb-8 text-po">Socials</h4>
+                <ul className="space-y-4">
+                  {footerLinks.socials.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg hover:text-pele transition-colors duration-300 block w-fit"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-xs font-bold tracking-[0.2em] mb-8 text-po">Legal</h4>
+                <ul className="space-y-4">
+                  {footerLinks.legal.map((link) => (
+                    <li key={link.name}>
+                      <Link href={link.href} className="text-lg hover:text-pele transition-colors duration-300 block w-fit">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="px-6 md:px-12 lg:px-20 py-8 border-t border-po/10">
+        <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wider text-alma/50">
+          <div className="md:hidden">
+            Est. 2024
+          </div>
+          <div>
+            © {new Date().getFullYear()} CAZA Foundation. All rights reserved.
+          </div>
+          <div>
+            Faith. Family. Healing.
           </div>
         </div>
       </div>
-
-      <div className="border-t border-alma/10 text-center py-6 text-xs text-alma/40">
-        © {new Date().getFullYear()} CAZA Foundation Inc. All rights reserved.
-      </div>
     </footer>
-  );
+  )
 }
