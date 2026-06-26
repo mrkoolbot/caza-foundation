@@ -44,9 +44,9 @@ export function CazaHero() {
           ref={bgRef}
           style={{
             position: "absolute", inset: 0,
-            backgroundImage: "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1920&q=85')",
-            backgroundSize: "cover", backgroundPosition: "center",
-            opacity: 0.45,
+            backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=90')",
+            backgroundSize: "cover", backgroundPosition: "center top",
+            opacity: 0.55,
           }}
         />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.5) 50%, transparent 100%)", zIndex: 1 }} />
