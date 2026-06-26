@@ -45,7 +45,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-cruz" />
         <img
           ref={bgRef}
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=85"
+          src="https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1920&q=85"
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-35"
         />

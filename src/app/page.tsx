@@ -13,7 +13,7 @@ const programs = [
     type: "Faith-Based Counseling",
     description: "Faith-centered counseling that meets families where they are — offering psychological support, healing conversations, and a safe space to grow.",
     href: "/our-programs#roots-and-wings",
-    image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80",
   },
   {
     number: "02",
@@ -21,7 +21,7 @@ const programs = [
     type: "Educational Support",
     description: "Educational programs that nurture minds while strengthening family bonds — because learning together is one of the most profound acts of love.",
     href: "/our-programs#the-knowing-house",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
   },
   {
     number: "03",
@@ -29,7 +29,7 @@ const programs = [
     type: "Disaster Recovery",
     description: "Disaster recovery support that goes beyond logistics — addressing emotional wounds and restoring hope when crisis has shaken everything.",
     href: "/our-programs#homecoming",
-    image: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=800&q=80",
   },
 ]
 
@@ -110,7 +110,7 @@ export default function Home() {
       {/* ── DARK SECTION — VISION ───────────────── */}
       <section className="py-16 sm:py-24 md:py-32 lg:py-48 px-4 sm:px-6 md:px-12 lg:px-16 bg-cruz text-alma relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1800&q=80')" }} />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1800&q=80')" }} />
           <div className="absolute inset-0 bg-gradient-to-t from-cruz via-cruz/80 to-transparent" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -174,7 +174,7 @@ export default function Home() {
       <section className="py-16 sm:py-20 md:py-32 px-4 sm:px-6 md:px-12 lg:px-16 bg-alma/50 border-t border-po/10">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative min-h-[320px] flex items-end overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" />
+            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" />
             <div className="absolute inset-0 bg-gradient-to-t from-amor/95 via-amor/50 to-transparent" />
             <div className="relative z-10 p-8 sm:p-10">
               <span className="text-pele text-[10px] font-bold tracking-[0.2em] block mb-3">Support</span>
@@ -187,7 +187,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="relative min-h-[320px] flex items-end overflow-hidden group">
-            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" />
+            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80" alt="" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" />
             <div className="absolute inset-0 bg-gradient-to-t from-cruz/95 via-cruz/50 to-transparent" />
             <div className="relative z-10 p-8 sm:p-10">
               <span className="text-pele text-[10px] font-bold tracking-[0.2em] block mb-3">Give</span>
