@@ -5,171 +5,95 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Plus } from "lucide-react"
 import { SectionHeader } from "@/components/section-header"
-import { Magnetic } from "@/components/ui/magnetic"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
 
-const audiences = [
+const pillars = [
   {
     id: "01",
-    title: "enterprise & mid-market brands",
-    role: "cmos, vps of marketing and brand leaders",
-    detail: "Your brand is stretched across channels, regions and teams. We help you clarify the narrative, codify it, and make it easy for everyone to execute against it.",
-    image: "/enterprise-brands.webp"
+    title: "families in crisis",
+    role: "parents, caregivers, and children navigating trauma",
+    detail: "When a family is fracturing, we walk in — not away. Faith-centered counseling and support that rebuilds from the inside out.",
+    image: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=800&q=80",
   },
   {
     id: "02",
-    title: "b2b & service powerhouses",
-    role: "print, logistics, tech and professional solutions",
-    detail: "Companies trust us to translate complex value into simple, resonant stories that win the right accounts.",
-    image: "/brandfulness.avif"
+    title: "children & youth",
+    role: "young lives shaped by what they see at home",
+    detail: "Educational programs and safe spaces that give children the tools to grow, communicate, and dream — even in the middle of hard seasons.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
   },
   {
     id: "03",
-    title: "founders, ceos & executives",
-    role: "leaders who need their voice to match their ambitions",
-    detail: "Your voice is an asset. We shape your thought leadership, content and presence so that every word works as hard as you do.",
-    image: "/lighting.avif"
-  }
+    title: "disaster survivors",
+    role: "families displaced by loss, storms, or crisis",
+    detail: "Emergency support that restores not just what was lost — but a family's sense of safety, faith, and home.",
+    image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80",
+  },
 ]
 
 export function WhoWeServe() {
   const [activeId, setActiveId] = useState<string | null>(null)
-  const [touchedId, setTouchedId] = useState<string | null>(null)
-  
-  // Combined active state for hover OR touch
-  const currentActiveId = touchedId ?? activeId
 
-  const handleTouch = (id: string) => {
-    setTouchedId(touchedId === id ? null : id)
-  }
-  
   return (
-    <section className="relative py-16 sm:py-24 md:py-32 lg:py-48 bg-alma text-cruz z-30">
-        <div className="container mx-auto px-4 sm:px-6 md:px-12">
-            {/* Header */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-12 sm:mb-16 md:mb-24 items-center">
-                <div>
-                    <SectionHeader 
-                        label="who we serve"
-                        title="built to support visionary leaders."
-                    />
-                </div>
-                <div>
-                    <p className="text-base sm:text-lg lg:text-xl text-neutral-500 leading-relaxed font-light">
-                        CAZA Foundation sits at the intersection of innovation, creativity, and results. We align the narrative so every move you make tells one clear story.
-                    </p>
-                </div>
-            </div>
-
-            {/* Interactive Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 h-auto">
-                {audiences.map((item, i) => {
-                    const isActive = currentActiveId === item.id
-                    
-                    return (
-                        <motion.div 
-                            key={item.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.6 }}
-                            onMouseEnter={() => setActiveId(item.id)}
-                            onMouseLeave={() => setActiveId(null)}
-                            onTouchStart={() => handleTouch(item.id)}
-                            className={cn(
-                                "group relative flex flex-col justify-between min-h-[320px] sm:min-h-[400px] md:min-h-[500px] p-6 sm:p-8 md:p-10 overflow-hidden bg-cruz text-white cursor-pointer",
-                                isActive && "ring-2 ring-amor/50"
-                            )}
-                        >
-                            {/* Background Image - Always Visible */}
-                            <div className="absolute inset-0 z-0">
-                                <Image 
-                                    src={item.image} 
-                                    alt="" 
-                                    fill 
-                                    className={cn(
-                                        "object-cover transition-transform duration-700 ease-out",
-                                        isActive && "scale-105"
-                                    )}
-                                />
-                                {/* Overlay: Darker by default for readability, lighter on hover/touch */}
-                                <div className={cn(
-                                    "absolute inset-0 transition-colors duration-700",
-                                    isActive ? "bg-cruz/40" : "bg-cruz/60"
-                                )} />
-                                {/* Gradient for text protection */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-cruz via-transparent to-transparent opacity-90" />
-                            </div>
-
-                            {/* Top Row */}
-                            <div className={cn(
-                                "relative z-10 flex justify-between items-start border-b pb-4 sm:pb-6 transition-colors duration-500",
-                                isActive ? "border-white/40" : "border-white/20"
-                            )}>
-                                <span className="text-xs sm:text-sm font-medium tracking-widest text-white/70">
-                                    {item.id}
-                                </span>
-                                <Link href="/contact" onClick={e => e.stopPropagation()} className={cn(
-                                    "w-7 h-7 sm:w-8 sm:h-8 rounded-full border flex items-center justify-center transition-all duration-500",
-                                    isActive ? "bg-white border-white" : "border-white/20"
-                                )}>
-                                    <Plus className={cn(
-                                        "w-3 h-3 sm:w-4 sm:h-4 transition-colors duration-500",
-                                        isActive ? "text-cruz" : "text-white"
-                                    )} />
-                                </Link>
-                            </div>
-
-                            {/* Bottom Content */}
-                            <div className="relative z-10 mt-auto">
-                                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 leading-[0.95] lowercase tracking-tight text-balance">
-                                    {item.title}
-                                </h4>
-                                <p className={cn(
-                                    "text-sm sm:text-base lg:text-lg text-white/70 lowercase leading-tight transition-all duration-500 ease-out",
-                                    isActive ? "mb-4 sm:mb-6" : "mb-0"
-                                )}>
-                                    {item.role}
-                                </p>
-                                
-                                {/* Detail Reveal - Visible on active state */}
-                                <div className={cn(
-                                    "grid transition-[grid-template-rows] duration-500 ease-out",
-                                    isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                                )}>
-                                    <div className="overflow-hidden">
-                                        <p className="text-sm sm:text-base text-white/90 leading-relaxed pt-4 sm:pt-6 border-t border-white/20">
-                                            {item.detail}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )
-                })}
-            </div>
-
-            {/* CTA */}
-            <div className="mt-12 sm:mt-16 md:mt-24 lg:mt-32 text-center">
-                 <Magnetic>
-                    <Link 
-                        href="/contact"
-                        className="inline-flex flex-col sm:flex-row items-center gap-1 sm:gap-2 group border-b border-transparent hover:border-amor transition-all pb-1"
-                    >
-                        <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-light lowercase text-neutral-600 group-hover:text-cruz transition-colors">
-                            want to make sure if we're a fit?
-                        </span>
-                        <span className="inline-flex items-center gap-1 sm:gap-2">
-                            <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold lowercase text-cruz group-hover:text-amor transition-colors">
-                                let's talk
-                            </span>
-                            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform text-amor" />
-                        </span>
-                    </Link>
-                </Magnetic>
-            </div>
+    <section style={{ position: "relative", padding: "8rem 5rem", backgroundColor: "#ffffff", zIndex: 30 }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "5rem", alignItems: "flex-end" }}>
+          <SectionHeader label="who we help" title="we walk with families through their hardest seasons." />
+          <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)", color: "#737373", lineHeight: 1.7, fontWeight: 400 }}>
+            CAZA Foundation meets families exactly where they are — in crisis, in grief, in displacement — and walks with them toward healing, wholeness, and hope.
+          </p>
         </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
+          {pillars.map((item, i) => {
+            const isActive = activeId === item.id
+            return (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                onMouseEnter={() => setActiveId(item.id)}
+                onMouseLeave={() => setActiveId(null)}
+                style={{ position: "relative", minHeight: 480, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "2.5rem", overflow: "hidden", cursor: "pointer" }}
+              >
+                <img src={item.image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.7s ease", transform: isActive ? "scale(1.05)" : "scale(1)" }} />
+                <div style={{ position: "absolute", inset: 0, backgroundColor: isActive ? "rgba(106,72,44,0.45)" : "rgba(26,26,26,0.6)", transition: "background-color 0.5s" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,26,26,0.95) 40%, transparent 100%)" }} />
+
+                <div style={{ position: "relative", zIndex: 10, display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid rgba(255,255,255,0.2)", paddingBottom: "1.5rem" }}>
+                  <span style={{ fontSize: "0.7rem", fontWeight: 500, letterSpacing: "0.15em", color: "rgba(255,255,255,0.6)" }}>{item.id}</span>
+                  <div style={{ width: 32, height: 32, borderRadius: "50%", border: isActive ? "none" : "1px solid rgba(255,255,255,0.2)", backgroundColor: isActive ? "white" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.4s" }}>
+                    <Plus style={{ width: 14, height: 14, color: isActive ? "#6a482c" : "white" }} />
+                  </div>
+                </div>
+
+                <div style={{ position: "relative", zIndex: 10, marginTop: "auto" }}>
+                  <h4 style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 0.95, color: "white", marginBottom: "0.75rem" }}>{item.title}</h4>
+                  <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.65)", lineHeight: 1.4, marginBottom: isActive ? "1.5rem" : 0, transition: "margin 0.4s" }}>{item.role}</p>
+                  <div style={{ display: "grid", gridTemplateRows: isActive ? "1fr" : "0fr", transition: "grid-template-rows 0.4s ease" }}>
+                    <div style={{ overflow: "hidden" }}>
+                      <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.85)", lineHeight: 1.6, paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.2)" }}>{item.detail}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+
+        <div style={{ marginTop: "4rem", textAlign: "center" }}>
+          <Link href="/find-shelter"
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "1.25rem", fontWeight: 400, color: "#737373", paddingBottom: "2px", borderBottom: "1px solid transparent", transition: "all 0.2s" }}
+            onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#1a1a1a"; el.style.borderBottomColor = "#813332" }}
+            onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#737373"; el.style.borderBottomColor = "transparent" }}
+          >
+            <span>not sure if we can help?</span>
+            <span style={{ fontWeight: 700, color: "#1a1a1a" }}>find shelter</span>
+            <ArrowRight style={{ width: 18, height: 18, color: "#813332" }} />
+          </Link>
+        </div>
+      </div>
     </section>
   )
 }
