@@ -54,7 +54,7 @@ export default function Give() {
               <p className="text-pele text-xs font-semibold tracking-widest uppercase mb-2">Step 2</p>
               <p className="text-alma font-semibold">Search for CAZA Foundation</p>
               <p className="text-alma/60 text-sm">Send to:</p>
-              <p className="text-pele font-bold text-lg mt-1">finance@cazafoundationinc.org</p>
+              <p className="text-pele font-bold text-lg mt-1">contact@cazafoundationinc.org</p>
             </div>
             <div>
               <p className="text-pele text-xs font-semibold tracking-widest uppercase mb-2">Step 3</p>
@@ -65,8 +65,8 @@ export default function Give() {
 
           <p className="text-alma/40 text-sm mt-8">
             Questions? Email us at{" "}
-            <a href="mailto:finance@cazafoundationinc.org" className="text-pele hover:underline">
-              finance@cazafoundationinc.org
+            <a href="mailto:contact@cazafoundationinc.org" className="text-pele hover:underline">
+              contact@cazafoundationinc.org
             </a>
           </p>
         </div>

@@ -39,10 +39,10 @@ export default function ReachOut() {
                 <div>
                   <p className="text-sm font-semibold text-barro tracking-widest uppercase mb-1">Email</p>
                   <a
-                    href="mailto:finance@cazafoundationinc.org"
+                    href="mailto:contact@cazafoundationinc.org"
                     className="text-xl font-bold text-cruz hover:text-amor transition-colors break-all"
                   >
-                    finance@cazafoundationinc.org
+                    contact@cazafoundationinc.org
                   </a>
                 </div>
               </div>

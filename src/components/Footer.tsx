@@ -36,8 +36,8 @@ export default function Footer() {
               <a href="tel:7542158201" className="hover:text-pele transition-colors">(754) 215-8201</a>
             </li>
             <li>
-              <a href="mailto:finance@cazafoundationinc.org" className="hover:text-pele transition-colors">
-                finance@cazafoundationinc.org
+              <a href="mailto:contact@cazafoundationinc.org" className="hover:text-pele transition-colors">
+                contact@cazafoundationinc.org
               </a>
             </li>
           </ul>
