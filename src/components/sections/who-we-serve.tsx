@@ -49,13 +49,12 @@ export function WhoWeServe() {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
                 onMouseEnter={() => setActiveId(item.id)}
                 onMouseLeave={() => setActiveId(null)}
-                style={{ position: "relative", minHeight: 480, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "2.5rem", overflow: "hidden", cursor: "pointer" }}
+                style={{ position: "relative", minHeight: 420, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "2.5rem", overflow: "hidden", cursor: "pointer" }}
               >
                 <img src={item.image} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.7s ease", transform: isActive ? "scale(1.05)" : "scale(1)" }} />
                 <div style={{ position: "absolute", inset: 0, backgroundColor: isActive ? "rgba(106,72,44,0.45)" : "rgba(26,26,26,0.6)", transition: "background-color 0.5s" }} />
