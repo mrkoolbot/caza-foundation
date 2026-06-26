@@ -69,10 +69,10 @@ export function Hero() {
             backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=90')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.3
+            opacity: 0.35
           }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a1a1a, #1a1a1a 30%, rgba(26,26,26,0.6) 70%, rgba(26,26,26,0.2))", zIndex: 10 }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.4) 100%)", zIndex: 10 }} />
       </div>
 
       {/* Content */}
@@ -82,9 +82,9 @@ export function Hero() {
           position: "relative",
           zIndex: 20,
           width: "100%",
-          padding: "0 1.25rem 7rem",
-          paddingTop: "120px",
-          maxWidth: "1200px",
+          padding: "0 5rem 7rem",
+          paddingTop: "160px",
+          maxWidth: "1400px",
           margin: "0 auto"
         }}
       >
@@ -110,13 +110,14 @@ export function Hero() {
 
         {/* Subheader */}
         <p style={{
-          color: "rgba(255,255,255,0.65)",
-          fontSize: "clamp(0.9rem, 1.2vw, 1.125rem)",
+          color: "rgba(255,255,255,0.85)",
+          fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
           fontWeight: 400,
           letterSpacing: "0.01em",
           marginBottom: "2.5rem",
-          maxWidth: "600px",
-          lineHeight: 1.6
+          maxWidth: "560px",
+          lineHeight: 1.65,
+          textShadow: "0 1px 20px rgba(0,0,0,0.6)"
         }}>
           faith-rooted counseling, education, and community support — walking with every family through their hardest seasons.
         </p>

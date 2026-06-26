@@ -54,13 +54,12 @@ export default function HomeClient() {
       <WhoWeServe />
 
       {/* Programs */}
-      <section style={{ padding: "7rem 5rem", backgroundColor: "#ffffff" }}>
+      <section style={{ padding: "5rem 5rem", backgroundColor: "#ffffff" }}>
         <SectionHeader 
             label="our programs"
             title="when a family finds shelter, everything changes."
             subtitle="from crisis to healing — three programs walking alongside families through their hardest seasons."
         />
-        <div style={{ marginBottom: "4rem" }} />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2rem", marginBottom: "3rem" }}>
             {programs.slice(0, 3).map((p) => (
                 <ProgramTile key={p.title} {...p} />
@@ -81,7 +80,7 @@ export default function HomeClient() {
 
 
       {/* Vision Section - Dark */}
-      <section style={{ position: "relative", padding: "10rem 5rem", backgroundColor: "#1a1a1a", color: "#ffffff", overflow: "hidden" }}>
+      <section style={{ position: "relative", padding: "7rem 5rem", backgroundColor: "#1a1a1a", color: "#ffffff", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, zIndex: 0, opacity: 0.1 }}>
              <div 
                 style={{ position: "absolute", inset: 0, backgroundImage: "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1800&q=80')", backgroundSize: "cover", backgroundPosition: "center" }}
@@ -115,7 +114,7 @@ export default function HomeClient() {
       </section>
 
       {/* Board Section */}
-      <section style={{ padding: "7rem 5rem", backgroundColor: "#ffffff", borderTop: "1px solid #f0f0f0" }}>
+      <section style={{ padding: "5rem 5rem", backgroundColor: "#ffffff", borderTop: "1px solid #f0f0f0" }}>
         <SectionHeader
             label="our people"
             title="guided by purpose. rooted in faith."
@@ -145,7 +144,7 @@ export default function HomeClient() {
       </section>
 
       {/* Dual CTA */}
-      <section style={{ padding: "0 5rem 7rem", backgroundColor: "#f9f9f9", borderTop: "1px solid #e5e5e5" }}>
+      <section style={{ padding: "0 5rem 5rem", backgroundColor: "#f9f9f9", borderTop: "1px solid #e5e5e5" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", maxWidth: "1400px", margin: "0 auto", paddingTop: "4rem" }}>
           {[
             { label: "support", headline: "need shelter?", sub: "you don't have to carry it alone.", href: "/support", cta: "find shelter", img: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=800&q=80", overlayColor: "rgba(129,51,50,0.88)" },
