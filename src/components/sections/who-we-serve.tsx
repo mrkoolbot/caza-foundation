@@ -81,7 +81,7 @@ export function WhoWeServe() {
           })}
         </div>
 
-        <div style={{ marginTop: "4rem", textAlign: "center" }}>
+        <div style={{ marginTop: "2.5rem", textAlign: "center" }}>
           <Link href="/find-shelter"
             style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", fontSize: "1.25rem", fontWeight: 400, color: "#737373", paddingBottom: "2px", borderBottom: "1px solid transparent", transition: "all 0.2s" }}
             onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.color = "#1a1a1a"; el.style.borderBottomColor = "#813332" }}

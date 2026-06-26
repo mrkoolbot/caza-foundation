@@ -65,7 +65,7 @@ export default function HomeClient() {
       <WhoWeServe />
 
       {/* Programs */}
-      <section style={{ padding: "5rem 5rem", backgroundColor: "#ffffff" }}>
+      <section style={{ padding: "4rem 5rem", backgroundColor: "#ffffff" }}>
         <SectionHeader 
             label="our programs"
             title="when a family finds shelter, everything changes."
