@@ -46,10 +46,10 @@ export function CazaHero() {
             position: "absolute", inset: 0,
             backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=90')",
             backgroundSize: "cover", backgroundPosition: "center top",
-            opacity: 0.55,
+            opacity: 0.40,
           }}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a1a1a 0%, rgba(26,26,26,0.5) 50%, transparent 100%)", zIndex: 1 }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #1a1a1a 20%, rgba(26,26,26,0.7) 55%, rgba(26,26,26,0.3) 100%)", zIndex: 1 }} />
       </div>
 
       {/* Content — bottom-aligned like TKG */}
@@ -61,7 +61,7 @@ export function CazaHero() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.2em", color: "white", fontWeight: 700, lineHeight: 1.05, letterSpacing: "-0.03em", fontSize: "clamp(2.5rem, 7vw, 7rem)", marginBottom: "2.5rem", maxWidth: "900px" }}>
             {["every home is", "a sanctuary."].map((line, i) => (
               <span key={i} style={{ display: "inline-block", overflow: "hidden" }}>
-                <span className="hero-word" style={{ display: "inline-block", color: i === 1 ? "#c18f55" : "white", fontStyle: i === 1 ? "italic" : "normal" }}>
+                <span className="hero-word" style={{ display: "inline-block", color: i === 1 ? "#c18f55" : "white", fontStyle: i === 1 ? "italic" : "normal", textShadow: "0 2px 40px rgba(0,0,0,0.5)" }}>
                   {line}&nbsp;
                 </span>
               </span>
